@@ -25,20 +25,19 @@ local function load_impl( sInput, sChunkName, env )
 				-- Lua 5.1
 				local fnCode, err = loadstring( sCode, sChunkName )
 				if fnCode then
-					err = nil
 					setfenv( fnCode, env )
 					table.insert( tFunctions, fnCode )
+				else
+					return false, err
 				end
 			else
 				-- Lua 5.3
 				local fnCode, err = load( sCode, sChunkName, "t", env )
 				if fnCode then
-					err = nil
 					table.insert( tFunctions, fnCode )
+				else
+					return false, err
 				end
-			end
-			if err then
-				return false, err
 			end
 		else
 			local sText
@@ -52,7 +51,7 @@ local function load_impl( sInput, sChunkName, env )
 			while sText do
 				local nEscapedNewline = string.find( sText, ESCAPED_NEWLINE )
 				if nEscapedNewline then
-					local sFragment = string.sub( sText, 1, ESCAPED_NEWLINE - 1 )
+					local sFragment = string.sub( sText, 1, nEscapedNewline - 1 )
 					table.insert( tFunctions, function() io.write(sFragment) end )
 					sText = string.sub( sText, nEscapedNewline + ESCAPED_NEWLINE:len() )
 				else
@@ -105,7 +104,9 @@ local function make_new_environment()
 		io.write(table.concat({...}, "\t"))
 		io.write("\n")
 	end
-	env.echo = io.write	
+	env.echo = function( v )
+		io.write( tostring( v ) )
+	end
 	return env
 end
 
