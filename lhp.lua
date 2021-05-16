@@ -18,10 +18,3 @@ if sOutputPath then
 end
 
 lhp.dofile(sInputPath)
-
-local inputFile = io.open(sInputPath, "r")
-if not inputFile then
-	error( "Could not open file for reading: "..sInputPath, 0 )
-end
-
-lhp.dofile(sInputPath)
