@@ -1,5 +1,5 @@
 # LHP
-LHP "Lua Hypertext Processor" is an ultra minimal parser for embedding Lua code inline with text files, in the style of PHP. It was created for static website generation, but could in principal be used dyamically within a web server, or for any text generation task.
+LHP ("Lua Hypertext Processor") is an ultra minimal parser for embedding Lua code inline with text files, in the style of PHP. It was created for static website generation, but could in principal be used dyamically within a web server, or for any text generation task.
 
 ## Example usage
 Input file:
