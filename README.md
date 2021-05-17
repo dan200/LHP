@@ -11,12 +11,10 @@ Input file:
       <ul>
         <?lua
           -- Print the first ten digits of the fibonacci sequence
-          local a,b = 0,1
+          local a, b = 0, 1
           for n=1,10 do
-            echo( "<li>" .. a .. "</li> )
-            local sum = a + b              
-            a = b
-            b = sum
+            echo( "<li>" .. a .. "</li>" )
+            a, b = b, a + b
           end
         ?>
       </ul>
