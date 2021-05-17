@@ -13,7 +13,7 @@ Input file:
           -- Print the first ten digits of the fibonacci sequence
           local a, b = 0, 1
           for n=1,10 do
-            echo( "<li>" .. a .. "</li>" )
+            print( "<li>" .. a .. "</li>" )
             a, b = b, a + b
           end
         ?>
