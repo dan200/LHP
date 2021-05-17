@@ -7,7 +7,7 @@ Input file:
 <!DOCTYPE HTML>
 <html>   
     <body>
-      <h1>The Fibionacci sequence:</h1>
+      <h1>The Fibonacci sequence:</h1>
       <ul>
         <?lua
           -- Print the first ten digits of the fibonacci sequence
@@ -32,7 +32,7 @@ Output file:
 <!DOCTYPE HTML>
 <html>   
     <body>
-      <h1>The Fibionacci sequence:</h1>
+      <h1>The Fibonacci sequence:</h1>
       <ul>
         <li>0</li>
         <li>1</li>
